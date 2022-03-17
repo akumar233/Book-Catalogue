@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookCatalogue", "BookCatalo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{CECF9B11-FC5A-4818-8092-EC47C7A4FECB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{6CEB94F4-D1AC-4F0E-8E1F-7A4534B88963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookCatalogueDTO", "BookCatalogueDTO\BookCatalogueDTO.csproj", "{DC9A2234-9296-4D59-985C-1F89A693A79C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CECF9B11-FC5A-4818-8092-EC47C7A4FECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CECF9B11-FC5A-4818-8092-EC47C7A4FECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CECF9B11-FC5A-4818-8092-EC47C7A4FECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CEB94F4-D1AC-4F0E-8E1F-7A4534B88963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CEB94F4-D1AC-4F0E-8E1F-7A4534B88963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CEB94F4-D1AC-4F0E-8E1F-7A4534B88963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CEB94F4-D1AC-4F0E-8E1F-7A4534B88963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9A2234-9296-4D59-985C-1F89A693A79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9A2234-9296-4D59-985C-1F89A693A79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9A2234-9296-4D59-985C-1F89A693A79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9A2234-9296-4D59-985C-1F89A693A79C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
