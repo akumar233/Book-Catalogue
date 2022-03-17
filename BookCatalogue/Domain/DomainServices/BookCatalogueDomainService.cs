@@ -22,9 +22,10 @@ namespace Domain.DomainServices
         /// Construtor for book catalogue domain service.
         /// </summary>
         /// <param name="bookCatalogueContext">Dependency inject for book catalogue context.</param>
-        public BookCatalogueDomainService(BookCatalogueContext bookCatalogueContext)
+        public BookCatalogueDomainService(BookCatalogueContext bookCatalogueContext, IMapper mapper)
         {
             _bookCatalogueContext = bookCatalogueContext;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -67,7 +68,7 @@ namespace Domain.DomainServices
         {
             List<BookCatalogueDTOs> bookCatalogueDTOs = new List<BookCatalogueDTOs>();
 
-            IQueryable<BookCatalogue> bookCatalogueList = _bookCatalogueContext.BookCatalogues;
+            IQueryable<BookCatalogue> bookCatalogueList = _bookCatalogueContext.BookCatalogues.Select(books => books);
             bookCatalogueDTOs = _mapper.Map<List<BookCatalogue>, List<BookCatalogueDTOs>>(bookCatalogueList.ToList());
 
             return bookCatalogueDTOs;
