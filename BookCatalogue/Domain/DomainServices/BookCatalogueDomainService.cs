@@ -3,10 +3,8 @@ using BookCatalogueDTO;
 using DataAccess.Context;
 using DataAccess.Entity;
 using Domain.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Domain.DomainServices
 {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BookCatalogueDTO
+﻿namespace BookCatalogueDTO
 {
     public class BookCatalogueSearchDTO
     {
