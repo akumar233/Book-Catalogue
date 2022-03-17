@@ -22,9 +22,10 @@ namespace Services.Services
         /// Construtor for book catalogue service.
         /// </summary>
         /// <param name="bookCatalogueContext">Dependency inject for book catalogue context.</param>
-        public BookCatalogueService(BookCatalogueContext bookCatalogueContext)
+        public BookCatalogueService(BookCatalogueContext bookCatalogueContext, IMapper mapper)
         {
             _bookCatalogueContext = bookCatalogueContext;
+            _mapper = mapper;
         }
 
         /// <summary>
