@@ -9,6 +9,7 @@ This file is providing the basic details about the current project developed for
 3. Asp.Net Core 3.1
 4. EntityFramework 5.0.10
 5. AutoMapper 11.0.1
+6. Serilog 5.0.0
 
 
 How to run this application - 

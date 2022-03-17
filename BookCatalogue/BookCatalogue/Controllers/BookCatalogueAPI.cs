@@ -1,12 +1,11 @@
 ﻿using Domain.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BookCatalogueDTO;
+using Microsoft.Extensions.Logging;
+using System;
 
 namespace BookCatalogue.Controllers
 {
@@ -16,44 +15,92 @@ namespace BookCatalogue.Controllers
     {
         private readonly IBookCatalogueDomainService _bookCatalogueDomain;
         private readonly IBookCatalogueServiceInterface _bookCatalogueService;
+        private readonly ILogger<BookCatalogueAPI> _logger;
 
         public BookCatalogueAPI(IBookCatalogueDomainService bookCatalogueDomain, 
-            IBookCatalogueServiceInterface bookCatalogueService)
+            IBookCatalogueServiceInterface bookCatalogueService,
+            ILogger<BookCatalogueAPI> logger)
         {
             _bookCatalogueDomain = bookCatalogueDomain;
             _bookCatalogueService = bookCatalogueService;
+            _logger = logger;
         }
 
         [HttpGet]
         [Route("api/BookCatalogues")]
         public IEnumerable<BookCatalogueDTOs> Get()
         {
-            return _bookCatalogueDomain.GetBookCatalogues();
+            try
+            {
+                _logger.LogInformation("Get request");
+                return _bookCatalogueDomain.GetBookCatalogues();
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Exception in GET method");
+                return null;
+            }
         }
 
         [HttpGet]
         [Route("api/BookCatalogues/Search")]
         public IEnumerable<BookCatalogueDTOs> GetList([FromQuery]BookCatalogueSearchDTO searchDTO)
         {
-            return _bookCatalogueDomain.GetBookCatalogue(searchDTO);
+            try
+            {
+                _logger.LogInformation("GetList request");
+                return _bookCatalogueDomain.GetBookCatalogue(searchDTO);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Exception in GetList method");
+                return null;
+            }
         }
 
         [HttpPost]
         public async Task<bool> InsertBookCatalogue(BookCatalogueDTOs bookCatalogue)
         {
-            return await _bookCatalogueService.InsertBookCatalogue(bookCatalogue);
+            try
+            {
+                _logger.LogInformation("InsertBookCatalogue request");
+                return await _bookCatalogueService.InsertBookCatalogue(bookCatalogue);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Exception in InsertBookCatalogue method");
+                return false;
+            }
         }
 
         [HttpDelete]
         public async Task<bool> DeleteBookCatalogue(BookCatalogueDTOs bookCatalogue)
         {
-            return await _bookCatalogueService.DeleteBookCatalogue(bookCatalogue);
+            try
+            {
+                _logger.LogInformation("DeleteBookCatalogue request");
+                return await _bookCatalogueService.DeleteBookCatalogue(bookCatalogue);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Exception in DeleteBookCatalogue method");
+                return false;
+            }
         }
 
         [HttpPut]
         public async Task<bool> UpdateBookCatalogue(BookCatalogueDTOs bookCatalogue)
         {
-            return await _bookCatalogueService.UpdateBookCatalogue(bookCatalogue);
+            try
+            {
+                _logger.LogInformation("UpdateBookCatalogue request");
+                return await _bookCatalogueService.UpdateBookCatalogue(bookCatalogue);
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Exception in UpdateBookCatalogue method");
+                return false;
+            }
         }
     }
 }
